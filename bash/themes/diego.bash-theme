@@ -1,0 +1,8 @@
+PS1='\[\033]0;\u@\h: \w\007\]'         # set window title
+PS1="$PS1"'\[\033[33m\]['              # Reset color and open []
+PS1="$PS1"'\[\033[32m\]\u'             # Green user
+PS1="$PS1"'\[\033[37m\]@'              # white "@"
+PS1="$PS1"'\[\033[35m\]\h'             # Magenta host
+PS1="$PS1"'\[\033[36m\] \w'            # Cyan Working Directory
+PS1="$PS1""\[\033[33m\]]"              # Reset color and close []
+PS1="$PS1"'\[\033[35m\] $\[\033[0m\] ' # prompt

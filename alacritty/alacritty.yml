@@ -1,0 +1,151 @@
+# Diego's alacrity config file
+
+# Deprecated
+# background_opacity: 0.95
+
+shell:
+  program: /usr/bin/zsh
+# program: /usr/bin/bash
+# program: /usr/bin/fish
+# args:
+#   - -l
+#   - -c
+#   - "tmux attach || tmux"
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: JetBrains Mono
+    style: Medium
+  bold:
+    family: JetBrains Mono
+    style: Bold
+  italic:
+    family: JetBrains Mono
+    style: Italic
+  size: 10.0
+
+window:
+  opacity: 0.95
+  dimensions:
+    columns: 100
+    lines: 85
+  padding:
+    x: 10
+    y: 10
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+  # Available values:
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  # - transparent: title bar, transparent background and title bar buttons
+  # - buttonless: title bar, transparent background, but no title bar buttons
+  decorations: full
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  startup_mode: Maximized
+
+# Colors (Gruvbox dark)
+colors:
+  # Default colors
+  primary:
+    # hard contrast: background = '0x1d2021'
+    background: '0x282828'
+    # soft contrast: background = '0x32302f'
+    foreground: '0xebdbb2'
+
+  # Normal colors
+  normal:
+    black:   '0x282828'
+    red:     '0xcc241d'
+    green:   '0x98971a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xb16286'
+    cyan:    '0x689d6a'
+    white:   '0xa89984'
+
+  # Bright colors
+  bright:
+    black:   '0x928374'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xebdbb2'
+
+key_bindings:
+  # My stuff
+  - { key: V,        mods: Control|Shift,       action: Paste                  }
+  - { key: C,        mods: Control|Shift,       action: Copy                   }
+  - { key: Q,        mods: Control|Shift,       action: Quit                   }
+  - { key: N,        mods: Control|Shift,       action: SpawnNewInstance       }
+  - { key: Return,   mods: Control,             action: ToggleFullscreen       }
+  - { key: Equals,   mods: Control,             action: IncreaseFontSize       }
+  - { key: Minus,    mods: Control,             action: DecreaseFontSize       }
+  - { key: Minus,    mods: Control|Shift,       action: ResetFontSize          }
+  - { key: Back,                          chars: "\x7f"                        } # Delete
+  - { key: Back,     mods: Alt,           chars: "\x1b\x7f"                    } # Delete word
+  - { key: Back,     mods: Control,       chars: "\x1b\x7f"                    } # Delete word
+  - { key: Delete,                        chars: "\x1b[C\x7f"                  } # Delete next char
+  - { key: Left,                          chars: "\x1bOD",   mode: AppCursor   }
+  - { key: Left,                          chars: "\x1b[D",   mode: ~AppCursor  }
+  - { key: Left,     mods: Control,       chars: "\x1bb"                       } # Go back one word
+  - { key: Right,                         chars: "\x1b[C",   mode: ~AppCursor  }
+  - { key: Right,                         chars: "\x1bOC",   mode: AppCursor   }
+  - { key: Right,    mods: Control,       chars: "\x1bf"                       } # Go forward one word
+  # Not my stuff (Yes, <C-c> + <C-v>)
+  # - { key: Home,                          chars: "\x1b0H",   mode: AppCursor   }
+  # - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
+  # - { key: End,                           chars: "\x1bOF",   mode: AppCursor   }
+  # - { key: End,                           chars: "\x1b[F",   mode: ~AppCursor  }
+  # - { key: PageUp,   mods: Shift,         chars: "\x1b[5;2~"                   }
+  # - { key: PageUp,   mods: Control,       chars: "\x1b[5;5~"                   }
+  # - { key: PageUp,                        chars: "\x1b[5~"                     }
+  # - { key: PageDown, mods: Shift,         chars: "\x1b[6;2~"                   }
+  # - { key: PageDown, mods: Control,       chars: "\x1b[6;5~"                   }
+  # - { key: PageDown,                      chars: "\x1b[6~"                     }
+  # - { key: Left,     mods: Shift,         chars: "\x1b[1;2D"                   }
+  # - { key: Left,     mods: Alt,           chars: "\x1b[1;3D"                   }
+  # - { key: Right,    mods: Shift,         chars: "\x1b[1;2C"                   }
+  # - { key: Right,    mods: Alt,           chars: "\x1b[1;3C"                   }
+  # - { key: Up,       mods: Shift,         chars: "\x1b[1;2A"                   }
+  # - { key: Up,       mods: Control,       chars: "\x1b[1;5A"                   }
+  # - { key: Up,       mods: Alt,           chars: "\x1b[1;3A"                   }
+  # - { key: Up,                            chars: "\x1b[A",   mode: ~AppCursor  }
+  # - { key: Up,                            chars: "\x1bOA",   mode: AppCursor   }
+  # - { key: Down,     mods: Shift,         chars: "\x1b[1;2B"                   }
+  # - { key: Down,     mods: Control,       chars: "\x1b[1;5B"                   }
+  # - { key: Down,     mods: Alt,           chars: "\x1b[1;3B"                   }
+  # - { key: Down,                          chars: "\x1b[B",   mode: ~AppCursor  }
+  # - { key: Down,                          chars: "\x1bOB",   mode: AppCursor   }
+  # - { key: Tab,      mods: Shift,         chars: "\x1b[Z"                      }
+  # - { key: F1,                            chars: "\x1bOP"                      }
+  # - { key: F2,                            chars: "\x1bOQ"                      }
+  # - { key: F3,                            chars: "\x1bOR"                      }
+  # - { key: F4,                            chars: "\x1bOS"                      }
+  # - { key: F5,                            chars: "\x1b[15~"                    }
+  # - { key: F6,                            chars: "\x1b[17~"                    }
+  # - { key: F7,                            chars: "\x1b[18~"                    }
+  # - { key: F8,                            chars: "\x1b[19~"                    }
+  # - { key: F9,                            chars: "\x1b[20~"                    }
+  # - { key: F10,                           chars: "\x1b[21~"                    }
+  # - { key: F11,                           chars: "\x1b[23~"                    }
+  # - { key: F12,                           chars: "\x1b[24~"                    }
+  # - { key: Insert,                        chars: "\x1b[2~"                     }
+
+    # shortcuts for tmux. the leader key is control-b (0x02)
+# - { key: W,        mods: Control,       chars: "\x02&"                       }  # close tab (kill)
+# - { key: T,        mods: Control,       chars: "\x02c"                       }  # new tab
+# - { key: RBracket, mods: Control|Shift, chars: "\x02n"                       }  # select next tab
+# - { key: LBracket, mods: Control|Shift, chars: "\x02p"                       }  # select previous tab
+# - { key: RBracket, mods: Control,       chars: "\x02o"                       }  # select next pane
+# - { key: LBracket, mods: Control,       chars: "\x02;"                       }  # select last (previously used) pane
+# - { key: F,        mods: Control,       chars: "\x02/"                       }  # search (upwards) (see tmux.conf)
