@@ -1,16 +1,21 @@
 # python path thing
 export PATH=/home/dd/.local/bin:$PATH
+export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"
+IDF_PATH="$HOME/esp/ESP8266_RTOS_SDK"
 
 alias ..='cd ..'
 alias ....='cd ../..'
 alias countryroadstakemehome='cd ~'
 alias takemebackplease='cd -'
+alias l='ls -la --group-directories-first --color=auto'
 alias ll='ls -l --group-directories-first --color=auto'
 alias la='ls -la --group-directories-first --color=auto'
 alias ls='ls --group-directories-first --color=auto'
 alias invaders='~/Downloads/gits/color-scripts/color-scripts/space-invaders'
 alias mine='java -jar ~/apps/minecraft/TLauncher-2.8.jar'
 # alias matlab='~/apps/matlab/bin/matlab'
+alias brmodelo='cd ~/dox/brmodelo && java -jar brModelo.jar'
+alias mysql_login='mysql -u dd -p'
 
 
 alias nome='cd '
@@ -19,14 +24,21 @@ alias gitcode='cat ~/.dotdir/git_code'
 alias gs='git status'
 
 function c() {
-  cd "$1" && ls --group-directories-first --color=auto || echo "no u"
+  cd "$1" && la || echo "no u"
 }
 
-alias piscina='cd ~/dox/solucaut/piscina'
-alias habitu='cd ~/dox/todo/habitu'
-alias moneyApp='cd ~/dox/moneyApp && la && gs'
-function showprojects() {
-  echo "piscina"
-  echo "habitu"
-  echo "moneyApp"
+# alias piscina='cd ~/dox/solucaut/piscina/tuya'
+# alias libras='cd ~/dox/solucaut/mvp-libras && la && gs'
+# alias habitu='cd ~/dox/todo/habitu'
+# alias moneyApp='cd ~/dox/moneyApp && la && gs'
+# function showprojects() {
+#   echo "piscina"
+#   echo "habitu"
+#   echo "moneyApp"
+# }
+
+function goto() {
+  python ~/.dotdir/projects/main.py
+  SLA=$(cat ~/.dotdir/projects/dpath.txt)
+  cd "$SLA"
 }
