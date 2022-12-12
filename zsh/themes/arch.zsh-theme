@@ -1,13 +1,14 @@
-# [user@host ~/small/path] %
+# [user@host ~/small/path] % 
 #
 # [user@host ~/big/path/to/folder]
-# %
+# % 
 #
-# [user@host ~/small/path] [main | ✔] %
+# [user@host ~/small/path] [main | ✔] % 
 #
 # [user@host ~/big/path/to/folder] [main | ✔]
-# %
+# % 
 
+source ~/.dotdir/zsh/zsh-git-prompt/zshrc.sh
 source ~/.dotdir/zsh/themes/.git_helper.zsh
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[cyan]%} ["

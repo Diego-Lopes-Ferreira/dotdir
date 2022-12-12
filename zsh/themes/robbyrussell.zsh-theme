@@ -1,4 +1,4 @@
-source ~/.dotdir/zsh/themes/.git_helper.zsh
+source ~/.dotdir/zsh/zsh-git-prompt/zshrc.sh
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[blue]%})%{$reset_color%} "

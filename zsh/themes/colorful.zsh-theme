@@ -16,22 +16,22 @@ function CONFIG_GIT_PROMPT() {
     ZSH_THEME_GIT_BRANCH=$(git symbolic-ref HEAD 2> /dev/null)
     # Extracts just the branch name "main"
     ZSH_THEME_GIT_BRANCH_NAME=$(echo $ZSH_THEME_GIT_BRANCH | cut -d "/" -f 3)
-    ZSH_THEME_GIT_PROMPT_TEXT+="%F{cyan}"" ("
-    # ZSH_THEME_GIT_PROMPT_TEXT+="%F{cyan}""$ZSH_THEME_GIT_TOP_LEVEL"
-    # ZSH_THEME_GIT_PROMPT_TEXT+="%F{cyan}"": "
+    ZSH_THEME_GIT_PROMPT_TEXT+="%F{reset_color}"" ("
+    ZSH_THEME_GIT_PROMPT_TEXT+="%F{red}""$ZSH_THEME_GIT_TOP_LEVEL"
+    ZSH_THEME_GIT_PROMPT_TEXT+="%F{reset_color}"": "
     ZSH_THEME_GIT_PROMPT_TEXT+="%F{red}""$ZSH_THEME_GIT_BRANCH_NAME"
-    ZSH_THEME_GIT_PROMPT_TEXT+="%F{cyan}"")"
+    ZSH_THEME_GIT_PROMPT_TEXT+="%F{reset_color}"")"
   fi;
 }
 
 function makeprompt() {
   PS1=""
-  PS1="$PS1""%F{yellow}["                    # yellow  [
-  PS1="$PS1""%F{green}%n"                    # green   username
-  PS1="$PS1""%F{reset_color}@"               # normal  @
-  PS1="$PS1""%F{magenta}%M"                  # magenta hostname
-  PS1="$PS1""%F{cyan} %~"                    # cyan    cwd
-  PS1="$PS1""%F{yellow}]"                    # yellow  ]
+  PS1="$PS1""%F{reset_color}["             # yellow  [
+  PS1="$PS1""%F{green}%n"      # username
+  PS1="$PS1""%F{reset_color}@"     # @
+  PS1="$PS1""%F{green}%M"      # hostname
+  PS1="$PS1""%F{yellow} %~"    # cwd
+  PS1="$PS1""%F{reset_color}]"     # ]
 
   CONFIG_GIT_PROMPT
   PS1="$PS1""$ZSH_THEME_GIT_PROMPT_TEXT"
@@ -42,12 +42,13 @@ function makeprompt() {
   THE_SIZE_OF_PATH=${#THE_PATH_TO_DIRECTORY} # Size of "THE_PATH_TO_DIRECTORY"
 
   # size = path + 26 + branch_name
-  if [ $THE_SIZE_OF_PATH -gt 20 ]; then      # "-gt" = "greater than" = ">"
-    PS1="$PS1"$'\n'
-  else
-    PS1="$PS1"" "
-  fi;
+  # if [ $THE_SIZE_OF_PATH -gt 20 ]; then      # "-gt" = "greater than" = ">"
+  #   PS1="$PS1"$'\n'
+  # else
+  #   PS1="$PS1"" "
+  # fi;
 
-  PS1="$PS1""%F{magenta}%% "                 # magenta %
+  PS1="$PS1"$'\n'
+  PS1="$PS1""%F{reset_color}λ "                 # magenta %
   PS1="$PS1""%F{reset_color}"
 }

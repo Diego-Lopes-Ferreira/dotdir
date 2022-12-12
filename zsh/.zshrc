@@ -29,23 +29,14 @@ fi
 HISTSIZE=100
 SAVEHIST=100
 HISTFILE=~/.dotdir/zsh/.zshhistory
+setopt HIST_IGNORE_ALL_DUPS
 
-if [ -f ~/.dotdir/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  source ~/.dotdir/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-  echo "WARNING: Auto suggestions is not installed"
-  echo "Please clone the repo in ~/.dotdir/zsh"
-  echo "  git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.dotdir/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
-
-# ! MUST BE THE LAST THING
-if [ -f ~/.dotdir/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.dotdir/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-  echo "WARNING: Syntax Highlighting is not installed"
-  echo "Please clone the repo in ~/.dotdir/zsh"
-  echo "  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.dotdir/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+source ~/.dotdir/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# *LAST THING
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[command]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
+source ~/.dotdir/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # DOCS
 # GIT PROMPT

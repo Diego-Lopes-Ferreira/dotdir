@@ -1,6 +1,7 @@
 # user@host ~/path/to/folder [main | ✔]
-# %
+# % 
 
+source ~/.dotdir/zsh/zsh-git-prompt/zshrc.sh
 source ~/.dotdir/zsh/themes/.git_helper.zsh
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[cyan]["
@@ -23,7 +24,7 @@ function makeprompt() {
   PS1="$PS1""%F{yellow} %~ "                     # yellow  cwd
   CONFIG_GIT_PROMPT
   PS1="$PS1""$ZSH_THEME_GIT_PROMPT_TEXT"
-  PS1="$PS1"$'\n'                                #
+  PS1="$PS1"$'\n'                                # 
   PS1="$PS1""%F{magenta}%% "                     # magenta %
-  PS1="$PS1""%F{reset_color}"                    #
+  PS1="$PS1""%F{reset_color}"                    # 
 }

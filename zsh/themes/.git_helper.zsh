@@ -2,17 +2,6 @@
 # else if (im inside a repo): show the top level
 # else: shows nothing
 
-if [ -f ~/.dotdir/zsh/zsh-git-prompt/zshrc.sh ]; then
-  source ~/.dotdir/zsh/zsh-git-prompt/zshrc.sh
-else
-  git_super_status() {
-    echo ""
-  }
-  echo "WARNING: Auto suggestions is not installed"
-  echo "Please clone the repo in ~/.dotdir/zsh"
-  echo "  git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.dotdir/zsh/zsh-git-prompt/zshrc.sh"
-fi
-
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[cyan]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[cyan]%}]"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[cyan]%}"
